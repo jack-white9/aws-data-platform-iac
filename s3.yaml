@@ -1,0 +1,21 @@
+AWSTemplateFormatVersion: "2010-09-09"
+Description: "AWS CloudFormation template to create and configure two S3 buckets for the raw and curated data tiers."
+Parameters:
+  RawBucketName: { Type: String, Default: "raw-tier" }
+  CuratedBucketName: { Type: String, Default: "curated-tier" }
+Resources:
+  RawBucket:
+    Type: "AWS::S3::Bucket"
+    Properties:
+      BucketName: !Ref RawBucketName
+  CuratedBucket:
+    Type: "AWS::S3::Bucket"
+    Properties:
+      BucketName: !Ref CuratedBucketName
+Outputs:
+  RawBucketName:
+    Description: Name of the bucket for raw tier of data
+    Value: !Ref RawBucketName
+  CuratedBucketName:
+    Description: Name of the bucket for curated tier of data
+    Value: !Ref CuratedBucketName
