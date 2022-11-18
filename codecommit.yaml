@@ -1,0 +1,12 @@
+Parameters:
+  RepositoryName:
+    Type: String
+    Default: "bootcamp-repository"
+  RepositoryDescription:
+    Type: String
+    Default: "Git repository for AWS data engineering bootcamp."
+Resources:
+  Type: AWS::CodeCommit::Repository
+  Properties:
+    RepositoryName: !Ref RepositoryName
+    RepositoryDescription: !Ref RepositoryDescription
